@@ -1,0 +1,356 @@
+{% extends 'base.html' %}
+{% csrf_token %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block nav %}
+<nav class="navbar shadow navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand text-white" href="#">BookMesh</a>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active text-white" aria-current="page" href="/blog/">Home</a>
+            </li>
+            </ul>
+            
+        </div>
+        <li class="nav-item d-flex">
+            
+            <form action="#" class="searchbox">
+                </i><input type="search" class="form-control" placeholder="Search" aria-label="Search"
+                    aria-describedby="search-addon" />
+            </form>
+        </li>
+
+        
+        <li class="nav-item dropdown d-flex">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img class="proimg" src="{{user.profile.avatar.url}}" alt=""> {{user.username}}
+                </a>
+            
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
+                <li><a class="dropdown-item" href="Profile_settings.html">Profile Settings</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="{% url 'login' %}">Log Out</a></li>
+            </ul>
+        </li>
+    </div>
+</nav>
+{% endblock nav %}
+
+{% block content %}
+
+<section class="homesec">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <div class=" content">
+                    <div class="sidebar">
+                        <div class="sidebar-content navbar-collapse">
+                            <div>
+                                <h5 class="card-title cardproname">Following Community</h5>
+                                <hr class="line2">
+                                <div class="container">
+                                    <p><img class="cardproimg" src="media/back.jpg" alt=""><a href="#" class="cardproname">community-1</a></p>
+                                    <p><img class="cardproimg" src="media/back.jpg" alt=""><a href="#" class="cardproname">community-2</a></p>
+                                    <p><img class="cardproimg" src="media/back.jpg" alt=""><a href="#" class="cardproname">community-3</a></p>
+                                </div>
+
+                                <h5 class="card-title cardproname">Favourite Community</h5>
+                                <hr class="line2">
+                                <div class="container">
+                                    <p><img class="cardproimg" src="media/back.jpg" alt=""><a href="#" class="cardproname">community-1</a></p>
+                                    <p><img class="cardproimg" src="media/back.jpg" alt=""><a href="#" class="cardproname">community-2</a></p>
+                                    <p><img class="cardproimg" src="media/back.jpg" alt=""><a href="#" class="cardproname">community-3</a></p>
+                                </div>
+
+                                <h5 class="card-title cardproname">Recommendations</h5>
+                                <hr class="line2">
+                                <div class="container">
+                                    <p><img class="cardproimg" src="media/back.jpg" alt=""><a href="#" class="cardproname">community-1</a></p>
+                                    <p><img class="cardproimg" src="media/back.jpg" alt=""><a href="#" class="cardproname">community-2</a></p>
+                                    <p><img class="cardproimg" src="media/back.jpg" alt=""><a href="#" class="cardproname">community-3</a></p>
+                                    <p><img class="cardproimg" src="media/back.jpg" alt=""><a href="#" class="cardproname">community-4</a></p>
+                                    <p><img class="cardproimg" src="media/back.jpg" alt=""><a href="#" class="cardproname">community-5</a></p>
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="feed col-md-6">
+                <div class="content">
+                    <div>
+                        <form action="" method="POST">
+                            {{post.content}}
+                            <input type="text" class="user-up-field" placeholder="  Whats on your mind!">
+                        </form>
+                        
+                    </div>
+                    <div class="card-div">
+                        {% for post in posts%}
+                        <div class="hcard">
+                                <h5 class="card-title"> <img class="cardproimg" src="media/avatar.png" alt=""> <a class="cardproname" href="Other_profile.html">{{post.author}}</a></h5>
+                                <img class="card-img-top card-img" src="{{post.image.url}}" alt="Card image cap">
+                                <div class="card-body">
+                                <h5 class="card-title">
+                                    <i>like</i>
+                                    <i>dislike</i>
+                                    <i>Comment</i> 
+                                </h5>
+                                <p class="card-text">221 upvotes</p>
+                                <p class="card-text">{{post.content}}</p>
+                                <small class="text-muted">{{post.date_posted|date:"F d, Y"}}</small>
+                            </div>
+                        </div>
+                        <div class="comment-section">
+                            <input type="text" class="comment" placeholder="   comments..">
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="content">
+                    <div class="sidebar">
+                        <div class="sidebar-content">
+                            <div>
+                                <h5 class="card-title cardproname">Recently visited</h5>
+                                <hr class="line2">
+                                <div class="container">
+                                    <p><img class="cardproimg" src="media/back.jpg" alt=""><a href="#" class="cardproname">community-1</a></p>
+                                    <p><img class="cardproimg" src="media/back.jpg" alt=""><a href="#" class="cardproname">community-2</a></p>
+                                    <p><img class="cardproimg" src="media/back.jpg" alt=""><a href="#" class="cardproname">community-3</a></p>
+                                </div>
+
+                                <h5 class="card-title cardproname">Recently Added</h5>
+                                <hr class="line2">
+                                <div class="container">
+                                    <p><img class="cardproimg" src="media/back.jpg" alt=""><a href="#" class="cardproname">community-1</a></p>
+                                    <p><img class="cardproimg" src="media/back.jpg" alt=""><a href="#" class="cardproname">community-2</a></p>
+                                    <p><img class="cardproimg" src="media/back.jpg" alt=""><a href="#" class="cardproname">community-3</a></p>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+{% endblock content %}
+
+{% block scripts %}
+<script>
+    
+</script>
+{% endblock scripts %}
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>BookMesh::Home</title>
+</head>
+
+
+
+<body>
+        <nav class="navbar shadow navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand text-white" href="#">BookMesh</a>
+                
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                    </li>
+                    </ul>
+                    
+                </div>
+                <li class="nav-item d-flex">
+                    
+                    <form action="#" class="searchbox">
+                        </i><input type="search" class="form-control" placeholder="Search" aria-label="Search"
+                            aria-describedby="search-addon" />
+                    </form>
+                </li>
+
+                
+                <li class="nav-item dropdown d-flex">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="proimg" src="img/avatar.png" alt=""> Arman
+                        </a>
+                    
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">My Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Profile Settings</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Log Out</a></li>
+                    </ul>
+                </li>
+            </div>
+        </nav>
+        
+        
+
+        <section class="homesec">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-md-3">
+                    <div class=" content">
+                        <div class="sidebar">
+                            <div class="sidebar-content navbar-collapse">
+                                <div>
+                                    <h5 class="card-title cardproname">Following Community</h5>
+                                    <hr class="line2">
+                                    <div class="container">
+                                        <p><img class="cardproimg" src="img/back.jpg" alt=""><a href="#" class="cardproname">community-1</a></p>
+                                        <p><img class="cardproimg" src="img/back.jpg" alt=""><a href="#" class="cardproname">community-2</a></p>
+                                        <p><img class="cardproimg" src="img/back.jpg" alt=""><a href="#" class="cardproname">community-3</a></p>
+                                    </div>
+
+                                    <h5 class="card-title cardproname">Favourite Community</h5>
+                                    <hr class="line2">
+                                    <div class="container">
+                                        <p><img class="cardproimg" src="img/back.jpg" alt=""><a href="#" class="cardproname">community-1</a></p>
+                                        <p><img class="cardproimg" src="img/back.jpg" alt=""><a href="#" class="cardproname">community-2</a></p>
+                                        <p><img class="cardproimg" src="img/back.jpg" alt=""><a href="#" class="cardproname">community-3</a></p>
+                                    </div>
+
+                                    <h5 class="card-title cardproname">Recommendations</h5>
+                                    <hr class="line2">
+                                    <div class="container">
+                                        <p><img class="cardproimg" src="img/back.jpg" alt=""><a href="#" class="cardproname">community-1</a></p>
+                                        <p><img class="cardproimg" src="img/back.jpg" alt=""><a href="#" class="cardproname">community-2</a></p>
+                                        <p><img class="cardproimg" src="img/back.jpg" alt=""><a href="#" class="cardproname">community-3</a></p>
+                                        <p><img class="cardproimg" src="img/back.jpg" alt=""><a href="#" class="cardproname">community-4</a></p>
+                                        <p><img class="cardproimg" src="img/back.jpg" alt=""><a href="#" class="cardproname">community-5</a></p>
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feed col-md-6">
+                    <div class="content">
+                        <div>
+                            <input type="text" class="user-up-field" placeholder="  Whats on your mind!">
+                        </div>
+                        <div class="card-div">
+                            <div class="hcard">
+                                    <h5 class="card-title"> <img class="cardproimg" src="img/avatar.png" alt=""> <a class="cardproname" href="Other_profile.html">Arman Sarker</a></h5>
+                                    <img class="card-img-top card-img" src="img/self.jfif" alt="Card image cap">
+                                    <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i>like</i>
+                                        <i>dislike</i>
+                                        <i>Comment</i> 
+                                    </h5>
+                                    <p class="card-text">221 upvotes</p>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    
+                                </div>
+                            </div>
+                            <div class="comment-section">
+                                <input type="text" class="comment" placeholder="   comments..">
+                            </div>
+
+                            <div class="hcard">
+                                    <h5 class="card-title"> <img class="cardproimg" src="img/avatar.png" alt=""> <a class="cardproname" href="Other_profile.html">Arman Sarker</a></h5>
+                                    <img class="card-img-top card-img" src="img/self.jfif" alt="Card image cap">
+                                    <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i>like</i>
+                                        <i>dislike</i>
+                                        <i>Comment</i> 
+                                    </h5>
+                                    <p class="card-text">221 upvotes</p>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    
+                                </div>
+                            </div>
+                            <div class="comment-section">
+                                <input type="text" class="comment" placeholder="   comments..">
+                            </div>
+
+                            <div class="hcard">
+                                    <h5 class="card-title"> <img class="cardproimg" src="img/avatar.png" alt=""> <a class="cardproname" href="Other_profile.html">Arman Sarker</a></h5>
+                                    <img class="card-img-top card-img" src="img/self.jfif" alt="Card image cap">
+                                    <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i>like</i>
+                                        <i>dislike</i>
+                                        <i>Comment</i> 
+                                    </h5>
+                                    <p class="card-text">221 upvotes</p>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    
+                                </div>
+                            </div>
+                            <div class="comment-section">
+                                <input type="text" class="comment" placeholder="   comments..">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3">
+                    <div class="content">
+                        <div class="sidebar">
+                            <div class="sidebar-content">
+                                <div>
+                                    <h5 class="card-title cardproname">Recently visited</h5>
+                                    <hr class="line2">
+                                    <div class="container">
+                                        <p><img class="cardproimg" src="img/back.jpg" alt=""><a href="#" class="cardproname">community-1</a></p>
+                                        <p><img class="cardproimg" src="img/back.jpg" alt=""><a href="#" class="cardproname">community-2</a></p>
+                                        <p><img class="cardproimg" src="img/back.jpg" alt=""><a href="#" class="cardproname">community-3</a></p>
+                                    </div>
+
+                                    <h5 class="card-title cardproname">Recently Added</h5>
+                                    <hr class="line2">
+                                    <div class="container">
+                                        <p><img class="cardproimg" src="img/back.jpg" alt=""><a href="#" class="cardproname">community-1</a></p>
+                                        <p><img class="cardproimg" src="img/back.jpg" alt=""><a href="#" class="cardproname">community-2</a></p>
+                                        <p><img class="cardproimg" src="img/back.jpg" alt=""><a href="#" class="cardproname">community-3</a></p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+</html> -->

@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock title %}
+
+{% block nav %}
+<nav class="navbar shadow navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand text-white" href="#">BookMesh | Admin</a>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <!-- <li class="nav-item">
+                <a class="nav-link active text-white" aria-current="page" href="Home.html">Admin</a>
+            </li> -->
+            </ul>
+            
+        </div>
+        <li class="nav-item d-flex">
+            
+            <form action="#" class="searchbox">
+                </i><input type="search" class="form-control" placeholder="Search" aria-label="Search"
+                    aria-describedby="search-addon" />
+            </form>
+        </li>
+
+        
+        <li class="nav-item dropdown d-flex">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Admin
+                </a>
+            
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+        </li>
+    </div>
+</nav>
+{% endblock nav %}
+
+{% block content %}
+{{hellow}}
+<section class="homesec">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <div class=" content">
+                    <div class="sidebar">
+                        <div class="sidebar-content">
+                            <div>
+                                
+                                <h4>Arman Sarker</h4>
+                                <hr class="line2">
+                                <p>Total Member : 120</p>
+                                <hr class="line2">
+                                <p>Total Communities : 8</p>
+                                <p><a class="following" href="#">See All</a></p>
+                                <hr class="line2">
+                                <p>Reported Users : 2</p>
+                                <p><a class="following" href="#">See All</a></p>
+                                <hr class="line2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile_settings col-md-9">
+                <h4>ADMIN DASHBOARD</h4>
+                <hr class="line2">
+                <div class="settings-content">
+                    <h4>All Communities: </h4>
+                    <div class="searchcard shadow-lg">
+                        <h5 class="card-title"> <img class="searchcardproimg" src="media/avatar.png" alt=""> <a class="cardproname" href="#">Community 1</a></h5>
+                        <div class="card-body">
+                        <h5 class="card-title">
+                        </h5>
+                    </div>
+                    </div>
+                    <div class="searchcard shadow-lg">
+                        <h5 class="card-title"> <img class="searchcardproimg" src="media/avatar.png" alt=""> <a class="cardproname" href="#">Community 2</a></h5>
+                        <div class="card-body">
+                        <h5 class="card-title">
+                        </h5>
+                    </div>
+                    </div>
+                    <div class="searchcard shadow-lg">
+                        <h5 class="card-title"> <img class="searchcardproimg" src="media/avatar.png" alt=""> <a class="cardproname" href="#">Community 3</a></h5>
+                        <div class="card-body">
+                        <h5 class="card-title">
+                        </h5>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            
+           
+        </div>
+    </div>
+    </section>
+{% endblock content %}
+
+{% block scripts %}
+<script>
+    
+</script>
+{% endblock scripts %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

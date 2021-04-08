@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock title %}
+
+{% block nav %}
+<nav class="navbar shadow navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand text-white" href="#">BookMesh</a>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active text-white" aria-current="page" href="Home.html">Home</a>
+            </li>
+            </ul>
+            
+        </div>
+        <li class="nav-item d-flex">
+            
+            <form action="#" class="searchbox">
+                </i><input type="search" class="form-control" placeholder="Search" aria-label="Search"
+                    aria-describedby="search-addon" />
+            </form>
+        </li>
+
+        
+        <li class="nav-item dropdown d-flex">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img class="proimg" src="media/avatar.png" alt=""> Arman
+                </a>
+            
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="profile.html">My Profile</a></li>
+                <li><a class="dropdown-item" href="Profile_settings.html">Profile Settings</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="Login.html">Log Out</a></li>
+            </ul>
+        </li>
+    </div>
+</nav>
+{% endblock nav %}
+
+{% block content %}
+<section class="homesec">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <div class=" content">
+                    <div class="sidebar">
+                        <div class="sidebar-content">
+                            <div>
+                                <img class="profileimg" src="media/avatar.png" alt="">
+                                <hr class="line2">
+                                <h4>Arman Sarker</h4>
+                                <hr class="line2">
+                                <p>
+                                    <a class="following" href="#">Followings: 1K</a>
+                                    <a class="following" href="#">Followers: 1M</a>
+                                </p>
+                                <hr class="line2">
+                                <p>Most Favourite communities: <p><a class="following" href="#">community-1</a></p> </p>
+                                <p>Most Favourite Reviewers: <p><a class="following" href="">reviewer-1</a></p></p>
+                                <hr class="line2">
+                                <p><a class="following" href="#">Joined Communities: 5</a></p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile_settings col-md-9">
+                <h4>Profile Settings: </h4>
+                <div class="settings-content">
+                    
+                    <form action="#">
+                        <h5>General</h5>
+                        <hr class="line2">
+                        
+                        <div class="changediv">
+                            
+                            <p class="heading_settings">Change Profile Photo: </p>
+                            <input type="file" class="form-control btn btn-primray" id="myFile" />
+                        </div>
+                        <div class="changediv">
+                            <p class="heading_settings">Change Name:</p>
+                            <div class="changepass"><input class="form-control" type="text" name="" placeholder="First name"> </div>
+                            <div class="changepass"><input class="form-control" type="text" name="" placeholder="Last Name"> </div>
+                        </div>
+                        <h5>Security</h5>
+                        <hr class="line2">
+                        
+                        <div class="changediv">
+                            
+                            <p class="heading_settings">Change Password: </p>
+                            <div class="changepass"><input type="password" class="form-control" id="inputPassword" placeholder="Current Password"></div>
+                            <div class="changepass"><input type="password" class="form-control" id="inputPassword" placeholder="New Password"></div>
+                            <div class="changepass"><input type="password" class="form-control" id="inputPassword" placeholder="Confirm New Password"></div> 
+                        </div>
+
+                        <h5>Others</h5>
+                        <hr class="line2">
+                        <div class="changediv">
+                            <p class="heading_settings">Go Darkmode</p>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                            
+                        </div>
+                        <hr class="line2">
+                        <button type="submit" class="editprobtn btn btn-block text-white">Apply Settings</button>
+                    </form>
+                </div>
+            </div>
+            
+           
+        </div>
+    </div>
+    </section>
+{% endblock content %}
+
+{% block scripts %}
+<script>
+    
+</script>
+{% endblock scripts %}
